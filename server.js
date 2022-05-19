@@ -27,7 +27,7 @@ app.get('/weather', (request, response, next) => {
 
     let search = request.query.searchQuery;
 
-    let url = `: https://api.weatherbit.io/v2.0/forecast/daily?city=${search}&units=I&days=7&key=${process.env.WEATHER_API_KEY}`;
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${search}&units=I&days=7&key=${process.env.WEATHER_API_KEY}`;
 
     let results = await axios.get(url);
 
