@@ -37,4 +37,6 @@ Start time: 4:30pm
 
 Finish time: 6:45 pm (next day)
 
-Actual time needed to complete: 
+Actual time needed to complete: too long
+
+![WRRC - Lab 08](./assets/lab-08.png);
