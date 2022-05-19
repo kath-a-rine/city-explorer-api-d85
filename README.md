@@ -15,6 +15,8 @@
 
 * Cody Davis collaborated on wireframe
 
+![WRRC - Lab 07](./assets/lab07.png)
+
 ## Time Estimates:
 
 ### **Lab 7 - Task 1: Set up your server repository**
@@ -33,8 +35,6 @@ Estimate of time needed to complete: 2 hours
 
 Start time: 4:30pm
 
-Finish time:
+Finish time: 6:45 pm (next day)
 
-Actual time needed to complete:
-
-## Lab 7 - Task 3: Errors
+Actual time needed to complete: 
