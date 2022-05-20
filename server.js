@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 3002;
 app.use(cors());
 
 // ROUTES
+app.get('/', (request, response) => response.send('I am ready!'));
+
 app.get('/weather', async (request, response, next) => {
   let city = request.query.city;
   console.log(city);
@@ -33,14 +35,14 @@ app.get('/weather', async (request, response, next) => {
   }
 });
 
+
 app.get('/movies', async (request, response, next) => {
 
   let city = request.query.city;
 
-
   try {
     let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&include_adult=false&query=${city}`;
-
+    console.log(movieUrl);
     let movieData = await axios.get(movieUrl);
     console.log(movieData);
     let movieDataToSend = movieData.data.results.map(movie => new Movie(movie));
