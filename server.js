@@ -9,29 +9,43 @@ const axios = require('axios');
 
 // USE
 const app = express();
-
 const PORT = process.env.PORT || 3002;
-
 app.use(cors());
 
 // ROUTES
-app.get('/weather', (request, response, next) => {
+app.get('/weather', async (request, response, next) => {
+  let city = request.query.city;
+  console.log(city);
+
   try {
-    // let cityData = request.query.city;
+    let lat = request.query.lat;
+    let lon = request.query.lon;
 
-    // let selectedCity = data.find(city => city.city_name.toLowerCase() === cityData.toLowerCase());
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&lat=${lat}&lon=${lon}&units=I&key=${process.env.WEATHER_API_KEY}`;
 
-    // let dataToSend = selectedCity.data.map(city => new Forecast(city));
-    // response.send(dataToSend);
-    // console.log(dataToSend);
+    let weatherData = await axios.get(url);
+    let dataToSend = weatherData.data.data.map(city => new Forecast(city));
 
-    let search = request.query.searchQuery;
+    response.send(dataToSend);
 
-    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${search}&units=I&days=7&key=${process.env.WEATHER_API_KEY}`;
+  } catch (error) {
+    next(error);
+  }
+});
 
-    let results = await axios.get(url);
+app.get('/movies', async (request, response, next) => {
 
-    //let latLon = data.find
+  let city = request.query.city;
+
+
+  try {
+    let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&include_adult=false&query=${city}`;
+
+    let movieData = await axios.get(movieUrl);
+    console.log(movieData);
+    let movieDataToSend = movieData.data.results.map(movie => new Movie(movie));
+    console.log(movieDataToSend);
+    response.send(movieDataToSend);
 
   } catch (error) {
     next(error);
@@ -44,17 +58,25 @@ app.get('*', (request, response) => {
 
 // ERRORS
 
-app.use((error, request, response, next) => {
+app.use((error, request, response) => {
   response.status(500).send(error.message);
 });
 
 // CLASSES
 class Forecast {
   constructor(weatherObject) {
-    // this.date = weatherObject.datetime;
-    // this.description = weatherObject.weather.description;
-    this.lat=weatherObject.lat;
-    this.lon=weatherObject.lon;
+    this.date = weatherObject.valid_date;
+    this.description = weatherObject.weather.description;
+    this.high_temp = weatherObject.high_temp;
+  }
+}
+
+class Movie {
+  constructor(movieObject) {
+    this.title = movieObject.title;
+    this.overview = movieObject.overview;
+    this.release_date = movieObject.release_date;
+    this.poster_path = `https://www.themoviedb.org/t/p/w440_and_h660_face` + `${movieObject.poster_path}`;
   }
 }
 
