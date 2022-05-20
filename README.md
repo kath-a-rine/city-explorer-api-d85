@@ -19,6 +19,7 @@
 ![WRRC - Lab 07](./assets/lab07.png)
 ![WRRC - Lab 08](./assets/lab-08.png);
 ![WRRC - Lab 09](./assets/Lab-9.png);
+![WRRC - Lab 10](./assets/lab10.jpeg)
 
 ## Time Estimates:
 
