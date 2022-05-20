@@ -15,7 +15,10 @@
 
 * Cody Davis collaborated on wireframe
 
+![WRRC - Lab 06](./assets/lab06-wireframe.png)
 ![WRRC - Lab 07](./assets/lab07.png)
+![WRRC - Lab 08](./assets/lab-08.png);
+![WRRC - Lab 09](./assets/Lab-09.png);
 
 ## Time Estimates:
 
@@ -39,4 +42,3 @@ Finish time: 6:45 pm (next day)
 
 Actual time needed to complete: too long
 
-![WRRC - Lab 08](./assets/lab-08.png);
