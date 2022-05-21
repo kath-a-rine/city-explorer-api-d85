@@ -3,7 +3,7 @@
 console.log('lab 10 server');
 
 // REQUIRE
-require('dotenv');
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const getWeather = require('./modules/weather.js');

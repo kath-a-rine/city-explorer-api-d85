@@ -32,9 +32,10 @@ function parseWeather(weatherData) {
 }
 
 class Weather {
-  constructor(day) {
-    this.forecast = day.weather.description;
-    this.time = day.datetime;
+  constructor(weatherObject) {
+    this.date = weatherObject.valid_date;
+    this.description = weatherObject.weather.description;
+    this.high_temp = weatherObject.high_temp;
   }
 }
 
