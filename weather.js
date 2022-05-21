@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 
-async function getWeather(request, response, next){
+async function getWeather (request, response, next){
   let city = request.query.city;
   console.log(city);
 

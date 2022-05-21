@@ -2,12 +2,12 @@
 
 const axios = require('axios');
 
-async function getMovies(request, response, next) {
+async function getMovies (request, response, next) {
 
   let city = request.query.city;
 
   try {
-    let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&include_adult=false&query=${city}`;
+    let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&include_adult=false&total_results=10&query=${city}`;
     console.log(movieUrl);
     let movieData = await axios.get(movieUrl);
     console.log(movieData);
