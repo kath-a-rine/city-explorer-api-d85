@@ -7,8 +7,8 @@ require('dotenv').config();
 const cors = require('cors');
 const axios = require('axios');
 
-require('./weather');
-require('./movies');
+const getWeather = require('./weather');
+const getMovies =require('./movies');
 
 // USE
 const app = express();
@@ -18,9 +18,9 @@ app.use(cors());
 // ROUTES
 app.get('/', (request, response) => response.send('I am ready!'));
 
-app.get('/weather', getMovies);
+app.get('/weather', getWeather);
 
-app.get('/movies', getWeather);
+app.get('/movies', getMovies);
 
 app.get('*', (request, response) => {
   response.status(404).send('Not found');
