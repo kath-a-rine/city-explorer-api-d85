@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 console.log('our first server');
 // REQUIRE
@@ -6,8 +6,8 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 
-const getWeather = require('./weather');
-const getMovies =require('./movies');
+const getWeather = require('./modules/myWeather');
+const getMovies =require('./modules/movies');
 
 // USE
 const app = express();
@@ -33,4 +33,4 @@ app.use((error, request, response) => {
 
 
 // LISTEN
-app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));*/

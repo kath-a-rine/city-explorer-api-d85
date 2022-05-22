@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 const axios = require('axios');
 
 
@@ -30,4 +30,4 @@ class Forecast {
   }
 }
 
-module.exports = getWeather;
+module.exports = getWeather; */
