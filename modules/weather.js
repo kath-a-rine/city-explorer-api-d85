@@ -1,11 +1,10 @@
 'use strict';
 
 const axios = require('axios');
-const res = require('express/lib/response');
 
 let cache = require('./cache.js');
 
-function getWeather(lat, lon) {
+async function getWeather(lat, lon) {
   let key = 'weather-' + lat + lon;
   let url = `http://api.weatherbit.io/v2.0/forecast/daily/?key=${process.env.WEATHER_API_KEY}&lang=en&lat=${lat}&lon=${lon}&days=5`;
 
@@ -13,12 +12,11 @@ function getWeather(lat, lon) {
 
   if (cache[key] && (Date.now() - cache[key].timestamp < timeToCache)) {
     console.log('Cache hit');
-    res.status(200).send(cache[key].data);
   } else {
     console.log('Cache miss');
     cache[key] = {};
     cache[key].timestamp = Date.now();
-    cache[key].data = axios.get(url)
+    cache[key].data = await axios.get(url)
       .then(response => parseWeather(response.data));
   }
   return cache[key].data;
